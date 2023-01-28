@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">The Movies</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movie_catalog">Movie Catalog</string>
+    <string name="movie_title">Movie title</string>
+    <string name="director_label">Director: </string>
+    <string name="director_name">Director name</string>
+    <string name="actors">Actors</string>
+    <string name="actor_1">Actor 1</string>
+    <string name="actor_2">Actor 2</string>
+    <string name="actor_3">Actor 3</string>
+    <string name="actor_4">Actor 4</string>
 </resources>
