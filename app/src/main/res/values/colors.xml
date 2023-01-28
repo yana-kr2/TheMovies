@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="pale_black">#1D1D1D</color>
-    <color name="dark_grey">#373636</color>
+    <color name="dark_grey">#2a2a30</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+
+    <!--    Text colors -->
+    <color name="textColorWhite">#FFFFFF</color>
+    <color name="textColorLightGray">#BBBCCD</color>
+    <color name="textColorDarkGray">#848593</color>
+    <color name="textColorDark">#2a2a30</color>
+    <color name="textColorBlack">#FF000000</color>
 </resources>
