@@ -5,7 +5,9 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App: Application() {
 
     init {

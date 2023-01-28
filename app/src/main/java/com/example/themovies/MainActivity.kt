@@ -1,10 +1,11 @@
 package com.example.themovies
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.ColorRes
+import androidx.appcompat.app.AppCompatActivity
 import com.example.themovies.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     companion object {
