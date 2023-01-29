@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.fragment.app.viewModels
+import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +20,7 @@ class MainFragment : BaseFragment() {
 
     private var mBinding: FragmentMainBinding? = null
     private val viewModel: MainViewModel by viewModels()
+    private  lateinit var adapter: MovieAdapter
 
 
     override fun onCreateView(
