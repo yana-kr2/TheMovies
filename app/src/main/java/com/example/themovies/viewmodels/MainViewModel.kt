@@ -1,18 +1,15 @@
 package com.example.themovies.viewmodels
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.themovies.model.Movie.Movie
 import com.example.themovies.repository.MoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -23,35 +20,34 @@ class MainViewModel
     companion object {
         const val TAG = "MainViewModel"
     }
-    //
+
     private val _uiState = MutableStateFlow(MainUiState())
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
 
-    private val _response = MutableLiveData<List<Movie>>()
-    val response: LiveData<List<Movie>>
-        get() = _response
+    private val errorMessage = MutableLiveData<String>()
+    val movieList = MutableLiveData<List<Movie>>()
 
-    init {
-        getAllMovies()
+    var job: Job? = null
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        throwable.printStackTrace()
     }
 
 
-    private fun getAllMovies() {
-        viewModelScope.launch {
+    fun getAllMovies() {
+        job = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler).launch {
             showLoading(true)
-            repository.getMovies().let { response ->
+            val response = repository.getMovies()
+            withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-                    _response.postValue(response.body())
+                    movieList.postValue(response.body())
                 } else {
-                    val errorBody: String = response.errorBody().toString()
                     _uiState.update {
-                        it.copy(errorMsg = errorBody)
+                        it.copy(errorMsg = response.message())
                     }
-                    Log.d(TAG, "Error: ${response.code()}")
                 }
-                showLoading(false)
             }
+            showLoading(false)
         }
     }
 
@@ -67,10 +63,14 @@ class MainViewModel
         }
     }
 
-
-    data class MainUiState(
-        val isLoading: Boolean = false,
-        val errorMsg: String? = null
-    )
-
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
+    }
 }
+
+data class MainUiState(
+    val isLoading: Boolean = false,
+    val errorMsg: String? = null
+)
+
