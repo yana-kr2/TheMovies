@@ -24,22 +24,7 @@ class MainViewModel : ViewModel() {
     val uiState: StateFlow<MainUIState> = _uiState.asStateFlow()
 
 
-    private fun getMovieData(callback: (List<Movie>) -> Unit) {
-        val apiService = MovieApiService.getInstance().create(MovieApiInterface::class.java)
-        apiService.getMovieList().enqueue(object : Callback<MovieResponse> {
 
-
-            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                return callback (response.body()!!.movies)
-            }
-
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-
-            }
-
-        })
-
-    }
 
 
     private fun showLoading(value: Boolean) {

@@ -12,11 +12,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_sub"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/movie_catalog"
-        android:layout_marginStart="@dimen/margin_sub"
         android:textColor="@color/textColorLightGray"
         android:textSize="@dimen/text_big">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_sub"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/top_rated"
+        android:textColor="@color/textColorLightGray"
+        android:textSize="@dimen/text_subtitle">
 
     </TextView>
 
@@ -28,11 +39,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:clipToPadding="false"
             android:orientation="vertical"
-            app:layoutManager="LinearLayoutManager" />
+            app:layoutManager="LinearLayoutManager"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

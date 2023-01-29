@@ -1,5 +1,6 @@
 package com.example.themovies.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,35 +15,30 @@ class MovieAdapter(
     private val movies: List<Movie>
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MovieViewHolder {
-        val v = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_movie, parent, false)
-        return MovieViewHolder(v)
+    class MovieViewHolder(view : View) : RecyclerView.ViewHolder(view){
+        private val binding = ItemMovieBinding.bind(view)
 
+        val movieT = binding.movieTitle
+        val movieD = binding.movieReleaseDate
+        val movieP = binding.moviePoster
+        fun bindMovie(movie : Movie){
+            movieT.text = movie.title
+            Log.i("MY LOG","title is ${movie.title} ")
+            movieD.text = movie.releaseDate
+            Glide.with(itemView).load(IMAGE_BASE + movie.poster).into(movieP)
+        }
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movies.get(position))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        return MovieViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+        )
     }
 
     override fun getItemCount(): Int = movies.size
 
-
-    inner class MovieViewHolder(item: View) :
-        RecyclerView.ViewHolder(item) {
-
-        private val binding = ItemMovieBinding.bind(item)
-
-        fun bind(movie: Movie?) {
-            binding.movieTitle.text = movie?.title
-            binding.movieReleaseDate.text = movie?.releaseDate
-            Glide.with(itemView).load(IMAGE_BASE + movie?.poster).into(binding.moviePoster)
-
-        }
-
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.bindMovie(movies.get(position))
     }
 }
 
