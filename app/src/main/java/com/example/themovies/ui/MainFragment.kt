@@ -9,7 +9,6 @@ import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainFragment : BaseFragment() {
 
     companion object {

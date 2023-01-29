@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.themovies.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MainActivity : AppCompatActivity() {
 
     companion object {

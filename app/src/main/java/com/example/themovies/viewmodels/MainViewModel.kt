@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.update
 
 
 
-@HiltViewModel
 class MainViewModel : ViewModel() {
 
     companion object {
