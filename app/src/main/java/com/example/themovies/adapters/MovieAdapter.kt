@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.themovies.R
 import com.example.themovies.databinding.ItemMovieBinding
 import com.example.themovies.model.Movie
+import com.example.themovies.utils.IMAGE_BASE
 
 class MovieAdapter(
     private val movies: List<Movie>
@@ -37,6 +39,7 @@ class MovieAdapter(
         fun bind(movie: Movie?) {
             binding.movieTitle.text = movie?.title
             binding.movieReleaseDate.text = movie?.releaseDate
+            Glide.with(itemView).load(IMAGE_BASE + movie?.poster).into(binding.moviePoster)
 
         }
 
