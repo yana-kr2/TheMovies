@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.utils.extensions.collectIn
+import com.example.themovies.utils.extensions.showSnackBar
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +37,7 @@ class MainFragment : BaseFragment() {
         val binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         context ?: return binding.root
         mBinding = binding
-        setUpRv()
+        setupView()
         return binding.root
     }
 
@@ -52,15 +53,20 @@ class MainFragment : BaseFragment() {
     }
 
     override fun setupView() {
+        setUpRv()
+        subscribeUi()
 
 
     }
 
-    private fun subscribeUi(){
+    private fun subscribeUi() {
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            viewModel.uiState.collectIn(viewLifecycleOwner) {
-                uiState ->
+            viewModel.uiState.collectIn(viewLifecycleOwner) { uiState ->
                 mBinding?.progressLoading?.root?.isVisible = uiState.isLoading
+                uiState.errorMsg?.let {
+                    activity?.showSnackBar(it)
+                    viewModel.onErrorMessageShown()
+                }
             }
         }
     }
@@ -81,9 +87,7 @@ class MainFragment : BaseFragment() {
 
 
         viewModel.response.observe(this, { listTvShows ->
-
             tvShowAdapter.movies = listTvShows
-
         })
 
 

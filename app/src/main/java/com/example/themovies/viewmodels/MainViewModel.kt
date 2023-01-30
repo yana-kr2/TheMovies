@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.themovies.model.Movie
+import com.example.themovies.model.Movie.Movie
 import com.example.themovies.repository.MoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -42,14 +42,25 @@ class MainViewModel
             if (response.isSuccessful) {
                 _response.postValue(response.body())
             } else {
+                val errorBody: String = response.errorBody().toString()
+                _uiState.update {
+                    it.copy(errorMsg = errorBody)
+                }
                 Log.d(TAG, "Error: ${response.code()}")
             }
         }
     }
 
+    fun onErrorMessageShown() {
+        _uiState.update {
+            it.copy(errorMsg = null)
+        }
+    }
+
 
     data class MainUiState(
-        val isLoading: Boolean = false
+        val isLoading: Boolean = false,
+        val errorMsg: String? = null
     )
 
 }

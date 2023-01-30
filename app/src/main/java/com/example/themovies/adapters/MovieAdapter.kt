@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.bumptech.glide.Glide
 import com.example.themovies.databinding.ItemMovieBinding
-import com.example.themovies.model.Movie
-import com.example.themovies.utils.AppConstants.IMAGE_BASE
+import com.example.themovies.model.Movie.Movie
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -52,6 +51,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         holder.binding.apply {
             movieTitle.text = currentMovies.name
             movieReleaseDate.text = currentMovies.releaseDate
+
 //            Glide.with().load(IMAGE_BASE + currentMovies.poster).into(moviePoster)
             moviePoster.load(currentMovies.image.original) {
                 crossfade(true)

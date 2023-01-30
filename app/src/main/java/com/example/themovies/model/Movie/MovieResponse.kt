@@ -1,4 +1,4 @@
-package com.example.themovies.model
+package com.example.themovies.model.Movie
 
 
 class MovieResponse : ArrayList <Movie> ()
