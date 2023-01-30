@@ -23,6 +23,10 @@ class MainViewModel
     companion object {
         const val TAG = "MainViewModel"
     }
+    //
+    private val _uiState = MutableStateFlow(MainUiState())
+    val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
+
 
     private val _response = MutableLiveData<List<Movie>>()
     val response: LiveData<List<Movie>>
@@ -42,5 +46,10 @@ class MainViewModel
             }
         }
     }
+
+
+    data class MainUiState(
+        val isLoading: Boolean = false
+    )
 
 }

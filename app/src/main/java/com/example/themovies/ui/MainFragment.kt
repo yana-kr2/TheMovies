@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
+import com.example.themovies.utils.extensions.collectIn
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -51,6 +54,15 @@ class MainFragment : BaseFragment() {
     override fun setupView() {
 
 
+    }
+
+    private fun subscribeUi(){
+        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
+            viewModel.uiState.collectIn(viewLifecycleOwner) {
+                uiState ->
+                mBinding?.progressLoading?.root?.isVisible = uiState.isLoading
+            }
+        }
     }
 
 

@@ -15,5 +15,5 @@
         android:indeterminate="true"
         app:indicatorColor="@color/white"
         app:indicatorSize="@dimen/progress_indicator_size"
-        app:trackColor="@color/dark_grey" />
+        app:trackColor="@color/pale_black" />
 </LinearLayout>
