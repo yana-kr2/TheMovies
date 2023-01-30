@@ -46,7 +46,6 @@
         android:id="@+id/movie_poster"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
         app:layout_constraintEnd_toStartOf="@id/image_guideline"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toTopOf="@id/top_guideline"
@@ -58,27 +57,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
+        android:paddingHorizontal="@dimen/margin"
         android:text="@string/movie_title"
         android:textColor="@color/textColorLightGray"
+        android:textSize="@dimen/text_subtitle"
         app:layout_constrainedWidth="true"
-        android:paddingHorizontal="@dimen/margin_sub_half"
-        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/image_guideline"
         app:layout_constraintTop_toTopOf="@+id/top_guideline" />
+
+    <TextView
+        android:id="@+id/release_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="@dimen/margin"
+        android:text="@string/release_date_label"
+        android:textColor="@color/textColorLightGray"
+        android:textSize="@dimen/text_subtitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/image_guideline"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"/>
 
     <TextView
         android:id="@+id/movie_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Release date"
+        android:paddingStart="@dimen/margin"
         android:textColor="@color/textColorLightGray"
+        android:textSize="@dimen/text_subtitle"
         app:layout_constrainedWidth="true"
-        android:paddingHorizontal="@dimen/margin_sub_half"
+        app:layout_constraintStart_toEndOf="@id/release_date_label"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintEnd_toStartOf="@+id/end_guideline"
-        app:layout_constraintStart_toStartOf="@+id/image_guideline"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline" />
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

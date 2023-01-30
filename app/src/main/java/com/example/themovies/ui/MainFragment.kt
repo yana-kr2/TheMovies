@@ -1,11 +1,13 @@
 package com.example.themovies.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.viewmodels.MainViewModel
@@ -20,7 +22,8 @@ class MainFragment : BaseFragment() {
 
     private var mBinding: FragmentMainBinding? = null
     private val viewModel: MainViewModel by viewModels()
-    private  lateinit var adapter: MovieAdapter
+    private lateinit var tvShowAdapter: MovieAdapter
+    private var recycleView: RecyclerView? = null
 
 
     override fun onCreateView(
@@ -30,8 +33,14 @@ class MainFragment : BaseFragment() {
         val binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         context ?: return binding.root
         mBinding = binding
-
+        setUpRv()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupView()
+
     }
 
     override fun onDestroyView() {
@@ -40,6 +49,33 @@ class MainFragment : BaseFragment() {
     }
 
     override fun setupView() {
+
+
     }
+
+
+    private fun setUpRv() {
+        tvShowAdapter = MovieAdapter()
+
+        mBinding?.rvMoviesList.apply {
+            this?.adapter = tvShowAdapter
+            this?.layoutManager = LinearLayoutManager(
+                activity, LinearLayoutManager.VERTICAL,
+                false
+            )
+
+            this?.setHasFixedSize(true)
+        }
+
+
+        viewModel.response.observe(this, { listTvShows ->
+
+            tvShowAdapter.movies = listTvShows
+
+        })
+
+
+    }
+
 
 }

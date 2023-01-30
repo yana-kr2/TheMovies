@@ -1,14 +1,13 @@
 package com.example.themovies.di
 
 import com.example.themovies.api.ApiService
-import com.example.themovies.utils.BASE_URL
+import com.example.themovies.utils.AppConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 
@@ -18,7 +17,7 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
-    fun provideBaseUrl() = BASE_URL
+    fun provideBaseUrl() = AppConstants.BASE_URL
 
     @Provides
     @Singleton

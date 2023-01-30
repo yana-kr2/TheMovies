@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.bumptech.glide.Glide
 import com.example.themovies.databinding.ItemMovieBinding
 import com.example.themovies.model.Movie
+import com.example.themovies.utils.AppConstants.IMAGE_BASE
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -48,13 +50,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         val currentMovies = movies[position]
 
         holder.binding.apply {
-            movieTitle.text = currentMovies.title
+            movieTitle.text = currentMovies.name
             movieReleaseDate.text = currentMovies.releaseDate
-            moviePoster.load(currentMovies.poster) {
+//            Glide.with().load(IMAGE_BASE + currentMovies.poster).into(moviePoster)
+            moviePoster.load(currentMovies.image.original) {
                 crossfade(true)
                 crossfade(1000)
             }
-
         }
     }
 
