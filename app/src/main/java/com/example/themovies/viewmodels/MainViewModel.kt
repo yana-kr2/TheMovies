@@ -37,16 +37,20 @@ class MainViewModel
     }
 
 
-    private fun getAllMovies() = viewModelScope.launch {
-        repository.getMovies().let { response ->
-            if (response.isSuccessful) {
-                _response.postValue(response.body())
-            } else {
-                val errorBody: String = response.errorBody().toString()
-                _uiState.update {
-                    it.copy(errorMsg = errorBody)
+    private fun getAllMovies() {
+        viewModelScope.launch {
+            showLoading(true)
+            repository.getMovies().let { response ->
+                if (response.isSuccessful) {
+                    _response.postValue(response.body())
+                } else {
+                    val errorBody: String = response.errorBody().toString()
+                    _uiState.update {
+                        it.copy(errorMsg = errorBody)
+                    }
+                    Log.d(TAG, "Error: ${response.code()}")
                 }
-                Log.d(TAG, "Error: ${response.code()}")
+                showLoading(false)
             }
         }
     }
@@ -54,6 +58,12 @@ class MainViewModel
     fun onErrorMessageShown() {
         _uiState.update {
             it.copy(errorMsg = null)
+        }
+    }
+
+    private fun showLoading(value: Boolean) {
+        _uiState.update {
+            it.copy(isLoading = value)
         }
     }
 

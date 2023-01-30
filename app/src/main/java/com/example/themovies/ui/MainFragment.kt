@@ -27,7 +27,6 @@ class MainFragment : BaseFragment() {
     private var mBinding: FragmentMainBinding? = null
     private val viewModel: MainViewModel by viewModels()
     private lateinit var tvShowAdapter: MovieAdapter
-    private var recycleView: RecyclerView? = null
 
 
     override fun onCreateView(
@@ -43,7 +42,6 @@ class MainFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupView()
 
     }
 
