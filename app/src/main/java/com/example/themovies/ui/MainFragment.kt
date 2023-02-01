@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
@@ -70,13 +72,11 @@ class MainFragment : BaseFragment() {
 
     private fun setUpRv() {
         tvShowAdapter = MovieAdapter()
+        val manager = GridLayoutManager(activity,2,GridLayoutManager.VERTICAL, false)
 
         mBinding?.rvMoviesList.apply {
             this?.adapter = tvShowAdapter
-            this?.layoutManager = LinearLayoutManager(
-                activity, LinearLayoutManager.VERTICAL,
-                false
-            )
+            this?.layoutManager = manager
             this?.setHasFixedSize(true)
         }
         viewModel.movieList.observe(viewLifecycleOwner) {
