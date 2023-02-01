@@ -55,42 +55,14 @@
 
         </TextView>
 
-        <TextView
-            android:id="@+id/director_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/director_label"
-            android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_title"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/movie_title">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/director_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/director_name"
-            android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_title"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBaseline_toBaselineOf="@id/director_label"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/director_label">
-
-        </TextView>
-
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="movie_poster,movie_title,director_label,director_name">
+            app:constraint_referenced_ids="movie_poster,movie_title"
+            tools:layout_editor_absoluteY="484dp">
 
         </androidx.constraintlayout.widget.Barrier>
 
@@ -129,7 +101,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_sub_half"
-            android:layout_marginBottom="@dimen/margin_sub_half"
             app:constraint_referenced_ids="actor_1,actor_2,actor_3,actor_4"
             app:flow_firstHorizontalBias="0"
             app:flow_firstVerticalStyle="packed"
