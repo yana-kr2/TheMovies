@@ -1,6 +1,5 @@
 package com.example.themovies.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.utils.extensions.collectIn
@@ -79,17 +77,11 @@ class MainFragment : BaseFragment() {
                 activity, LinearLayoutManager.VERTICAL,
                 false
             )
-
             this?.setHasFixedSize(true)
         }
-
-
-        viewModel.response.observe(this, { listTvShows ->
-            tvShowAdapter.movies = listTvShows
-        })
-
-
+        viewModel.movieList.observe(viewLifecycleOwner) {
+            tvShowAdapter.movies = it
+        }
+        viewModel.getAllMovies()
     }
-
-
 }
