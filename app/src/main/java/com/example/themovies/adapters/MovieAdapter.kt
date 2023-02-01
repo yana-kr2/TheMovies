@@ -6,11 +6,10 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.bumptech.glide.Glide
 import com.example.themovies.databinding.ItemMovieBinding
-import com.example.themovies.model.Movie.Movie
+import com.example.themovies.model.movie.Movie
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class   MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
 
     inner class MovieViewHolder(val binding: ItemMovieBinding) :
@@ -47,18 +46,18 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentMovies = movies[position]
+        val id = currentMovies.id
 
         holder.binding.apply {
-            movieTitle.text = currentMovies.name
-            movieReleaseDate.text = currentMovies.releaseDate
-
+//            val text = currentMovies.summary
+//            overview.text = Html.fromHtml(text)
+//            overview.movementMethod = ScrollingMovementMethod()
 //            Glide.with().load(IMAGE_BASE + currentMovies.poster).into(moviePoster)
-            moviePoster.load(currentMovies.image.original) {
+            movieTitle.text = currentMovies.name
+            moviePoster.load(currentMovies.image?.original) {
                 crossfade(true)
                 crossfade(1000)
             }
         }
     }
-
-
 }

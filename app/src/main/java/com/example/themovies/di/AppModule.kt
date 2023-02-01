@@ -1,6 +1,6 @@
 package com.example.themovies.di
 
-import com.example.themovies.api.ApiService
+import com.example.themovies.data.network.MovieApiInterface
 import com.example.themovies.utils.AppConstants
 import dagger.Module
 import dagger.Provides
@@ -21,10 +21,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(BASE_URL: String?): ApiService =
+    fun provideRetrofitInstance(BASE_URL: String?): MovieApiInterface =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiService::class.java)
+            .create(MovieApiInterface::class.java)
 }

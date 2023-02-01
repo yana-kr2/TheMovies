@@ -2,7 +2,7 @@ package com.example.themovies.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.themovies.model.Movie.Movie
+import com.example.themovies.model.movie.Movie
 import com.example.themovies.repository.MoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -25,7 +25,6 @@ class MainViewModel
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
 
-    private val errorMessage = MutableLiveData<String>()
     val movieList = MutableLiveData<List<Movie>>()
 
     var job: Job? = null

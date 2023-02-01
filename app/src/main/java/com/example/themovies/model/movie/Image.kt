@@ -1,4 +1,4 @@
-package com.example.themovies.model.Movie
+package com.example.themovies.model.movie
 
 
 
