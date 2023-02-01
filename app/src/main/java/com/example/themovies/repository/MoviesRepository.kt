@@ -1,11 +1,11 @@
 package com.example.themovies.repository
 
-import com.example.themovies.api.ApiService
+import com.example.themovies.data.network.MovieApiInterface
 import javax.inject.Inject
 
 class MoviesRepository
     @Inject constructor(
-        private val apiService: ApiService
+        private val apiService: MovieApiInterface
     ) {
-        suspend fun getMovies() = apiService.getMovies()
+        suspend fun getMovies() = apiService.getAllMovies()
 }
