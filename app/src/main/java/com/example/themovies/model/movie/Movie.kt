@@ -5,5 +5,10 @@ data class Movie(
     val image: Image?,
     val name: String?,
     val summary: String?,
+    val premiered: String?,
+    val ended: String?
+)
 
-    )
+
+
+

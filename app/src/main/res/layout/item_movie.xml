@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/container_view"
     android:layout_gravity="center"
     android:layout_margin="@dimen/margin_sub"
     app:cardCornerRadius="@dimen/card_view_corner_radius"

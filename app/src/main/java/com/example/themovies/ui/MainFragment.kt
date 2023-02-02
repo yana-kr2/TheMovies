@@ -1,5 +1,6 @@
 package com.example.themovies.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +8,14 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.themovies.R
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.utils.extensions.collectIn
 import com.example.themovies.utils.extensions.showSnackBar
+import com.example.themovies.utils.showToast
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +29,12 @@ class MainFragment : BaseFragment() {
     private var mBinding: FragmentMainBinding? = null
     private val viewModel: MainViewModel by viewModels()
     private lateinit var tvShowAdapter: MovieAdapter
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        tvShowAdapter = MovieAdapter()
+    }
 
 
     override fun onCreateView(
@@ -53,6 +61,7 @@ class MainFragment : BaseFragment() {
     override fun setupView() {
         setUpRv()
         subscribeUi()
+        setUpClickListener()
 
 
     }
@@ -69,11 +78,17 @@ class MainFragment : BaseFragment() {
         }
     }
 
+    private fun setUpClickListener() {
+        tvShowAdapter.onMovieClick = {
+            findNavController().navigate(R.id.action_mainFragment_to_detail_fragment)
+            showToast(requireContext(), "${it.id}")
+        }
+    }
+
 
     private fun setUpRv() {
-        tvShowAdapter = MovieAdapter()
-        val manager = GridLayoutManager(activity,2,GridLayoutManager.VERTICAL, false)
 
+        val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         mBinding?.rvMoviesList.apply {
             this?.adapter = tvShowAdapter
             this?.layoutManager = manager
