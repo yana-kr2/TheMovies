@@ -15,7 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel
-@Inject constructor(private val repository: MoviesRepository) : ViewModel() {
+@Inject constructor(
+    private val repository: MoviesRepository
+    ): ViewModel() {
 
     companion object {
         const val TAG = "MainViewModel"

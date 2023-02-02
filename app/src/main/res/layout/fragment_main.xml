@@ -20,9 +20,7 @@
             android:paddingVertical="@dimen/margin_sub_half"
             android:text="@string/movie_catalog"
             android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_big">
-
-        </TextView>
+            android:textSize="@dimen/text_big" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies_list"
@@ -35,6 +33,5 @@
         android:id="@+id/progressLoading"
         layout="@layout/layout_progress_loading"
         android:visibility="visible" />
-
 
 </FrameLayout>

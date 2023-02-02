@@ -1,15 +1,16 @@
 package com.example.themovies.ui
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.load
 import com.example.themovies.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment() {
-
 
     companion object {
         const val TAG = "DetailFragment"
@@ -35,7 +36,12 @@ class DetailFragment : BaseFragment() {
     }
 
     override fun setupView() {
+        mBinding?.movieTitle?.text = arguments?.getString("title")
+        mBinding?.moviePoster?.load((arguments?.getString("poster")))
+        val description = arguments?.getString("summary")
+        mBinding?.description?.text = Html.fromHtml(description)
+
     }
-
-
 }
+
+

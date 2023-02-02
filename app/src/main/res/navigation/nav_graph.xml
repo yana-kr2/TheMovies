@@ -10,6 +10,7 @@
         android:name="com.example.themovies.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
+
         <action
             android:id="@+id/action_mainFragment_to_detail_fragment"
             app:destination="@id/detail_fragment" />

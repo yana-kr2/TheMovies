@@ -3,6 +3,8 @@ package com.example.themovies.ui
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.themovies.MainActivity
 
 abstract class BaseFragment : Fragment() {
@@ -20,6 +22,14 @@ abstract class BaseFragment : Fragment() {
             } else {
                 null
             }
+        }
+    }
+
+    fun Fragment.getNavController(): NavController? {
+        return try {
+            NavHostFragment.findNavController(this)
+        } catch (e: IllegalStateException) {
+            null
         }
     }
 }

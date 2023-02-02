@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/container_view"
     android:layout_gravity="center"
     android:layout_margin="@dimen/margin_sub"
     app:cardCornerRadius="@dimen/card_view_corner_radius"
@@ -22,21 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:layout_gravity="center"
-            android:scaleType="fitXY"
             android:layout_margin="@dimen/margin_small"
             android:padding="@dimen/item_padding"
+            android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/movie_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_small"
-            android:padding="@dimen/item_padding"
             android:ellipsize="end"
+            android:fontFamily="@font/montserrat_bold"
             android:maxLines="2"
+            android:padding="@dimen/item_padding"
             android:text="@string/movie_title"
             android:textAlignment="center"
             android:textColor="@color/textColorLightGray"

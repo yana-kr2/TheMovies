@@ -1,6 +1,5 @@
 package com.example.themovies.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +7,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.themovies.R
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
 import com.example.themovies.utils.extensions.collectIn
 import com.example.themovies.utils.extensions.showSnackBar
-import com.example.themovies.utils.showToast
 import com.example.themovies.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,10 +44,6 @@ class MainFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -61,9 +53,6 @@ class MainFragment : BaseFragment() {
     override fun setupView() {
         setUpRv()
         subscribeUi()
-        setUpClickListener()
-
-
     }
 
     private fun subscribeUi() {
@@ -78,18 +67,11 @@ class MainFragment : BaseFragment() {
         }
     }
 
-    private fun setUpClickListener() {
-        tvShowAdapter.onMovieClick = {
-            findNavController().navigate(R.id.action_mainFragment_to_detail_fragment)
-            showToast(requireContext(), "${it.id}")
-        }
-    }
-
 
     private fun setUpRv() {
-
         val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         mBinding?.rvMoviesList.apply {
+
             this?.adapter = tvShowAdapter
             this?.layoutManager = manager
             this?.setHasFixedSize(true)
