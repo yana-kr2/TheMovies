@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pale_black"
     tools:context=".ui.DetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:scaleType="fitStart"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,54 +88,22 @@
             app:layout_constraintStart_toStartOf="@id/start_guideline"
             app:layout_constraintTop_toBottomOf="@id/description"/>
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/actors"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin"
-            app:constraint_referenced_ids="actor_1,actor_2,actor_3,actor_4"
-            app:flow_firstHorizontalBias="0"
-            app:flow_firstVerticalStyle="packed"
-            app:flow_horizontalGap="8dp"
-            app:flow_horizontalStyle="packed"
-            app:flow_verticalGap="8dp"
-            app:flow_wrapMode="aligned"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/actor_label" />
-
-        <TextView
-            android:id="@+id/actor_1"
-            style="@style/Actor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actor_1"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/actor_2"
-            style="@style/Actor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actor_2"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/actor_3"
-            style="@style/Actor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actor_3"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/actor_4"
-            style="@style/Actor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actor_4"
-            android:textColor="@color/black"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cast_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/actor_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+    </ScrollView>
+
+    <include
+        android:id="@+id/progressLoading"
+        layout="@layout/layout_progress_loading"
+        android:visibility="visible" />
+
+</FrameLayout>

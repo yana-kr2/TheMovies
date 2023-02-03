@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 
@@ -51,6 +54,7 @@ class MainViewModel
             showLoading(false)
         }
     }
+
 
     fun onErrorMessageShown() {
         _uiState.update {

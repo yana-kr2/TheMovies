@@ -13,7 +13,7 @@ import com.example.themovies.databinding.ItemMovieBinding
 import com.example.themovies.model.movie.Movie
 
 
-class MovieAdapter () : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(
@@ -33,7 +33,8 @@ class MovieAdapter () : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                                     "summary" to currentMovies.summary,
                                     "premiered" to currentMovies.premiered,
                                     "ended" to currentMovies.ended,
-                                    "id" to currentMovies.id)
+                                    "id" to currentMovies.id,
+                                    "genres" to currentMovies.genres)
 
         holder.binding.apply {
             movieTitle.text = currentMovies.name

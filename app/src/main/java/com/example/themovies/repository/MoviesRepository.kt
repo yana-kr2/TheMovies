@@ -8,4 +8,6 @@ class MoviesRepository
         private val apiService: MovieApiInterface
     ) {
         suspend fun getMovies() = apiService.getAllMovies()
+
+        suspend fun getCast(movieId: String) = apiService.getAllCast(movieId = movieId)
 }

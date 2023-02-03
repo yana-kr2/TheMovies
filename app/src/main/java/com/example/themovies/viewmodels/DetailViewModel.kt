@@ -1,10 +1,14 @@
 package com.example.themovies.viewmodels
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.example.themovies.model.cast.CastItem
 import com.example.themovies.repository.MoviesRepository
+import dagger.assisted.Assisted
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,8 +18,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val repository: MoviesRepository
+    private val repository: MoviesRepository,
+    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
+
 
     companion object {
         const val TAG = "DetailViewModel"
@@ -23,15 +29,38 @@ class DetailViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(DetailUiState())
     val uiState: StateFlow<DetailUiState> = _uiState.asStateFlow()
+//    private val movieId = savedStateHandle.getLiveData<Int>("id")
+
+    val list = MutableLiveData<List<CastItem>>()
+
+    // I know, that it is a wrong way. It's unwelcome method
+    // but, i don't follow, why savedStateHandle doesn't work (like as I write above)
+    var movieId: Int = -1
+
+
+    fun getAllCast() {
+        job = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler).launch {
+            showLoading(true)
+            val response = repository.getCast(movieId.toString())
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    list.postValue(response.body())
+                } else {
+                    _uiState.update {
+                        it.copy(errorMsg = response.errorBody().toString())
+                    }
+                }
+            }
+            showLoading(false)
+        }
+    }
+
 
 
     var job: Job? = null
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.printStackTrace()
     }
-
-
-
 
     fun onErrorMessageShown() {
         _uiState.update {
@@ -45,13 +74,13 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-//    override fun onCleared() {
-//        super.onCleared()
-//        job?.cancel()
-//    }
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
+    }
 }
 
 data class DetailUiState (
     val isLoading: Boolean = false,
     val errorMsg: String? = null
-        )
+)
