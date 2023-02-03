@@ -63,7 +63,7 @@ class DetailFragment : BaseFragment() {
             viewModel.uiState.collectIn(viewLifecycleOwner) { uiState ->
                 mBinding?.progressLoading?.root?.isVisible = uiState.isLoading
                 uiState.errorMsg?.let {
-                    Log.d(TAG,it)
+                    Log.d(TAG, it)
                     activity?.showSnackBar(it)
                     viewModel.onErrorMessageShown()
                 }
@@ -82,7 +82,7 @@ class DetailFragment : BaseFragment() {
     }
 
     private fun setupCastRv() {
-        val manager = GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
+        val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         mBinding?.rvCastList.apply {
             this?.adapter = castAdapter
             this?.layoutManager = manager

@@ -11,93 +11,93 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start_guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="12dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/end_guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="12dp" />
-
-        <ImageView
-            android:id="@+id/movie_poster"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/movie_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/movie_title"
-            android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_big"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/movie_poster"/>
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="movie_poster,movie_title"
-            tools:layout_editor_absoluteY="484dp"/>
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_body"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/barrier"/>
-
-        <TextView
-            android:id="@+id/actor_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_sub_half"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/actors"
-            android:textColor="@color/textColorLightGray"
-            android:textSize="@dimen/text_title"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/description"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_cast_list"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/actor_label"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="wrap_content">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="12dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="12dp" />
+
+            <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/movie_title"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_big"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/movie_poster" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="movie_poster,movie_title"
+                tools:layout_editor_absoluteY="484dp" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_body"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/actor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_sub_half"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/actors"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_title"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cast_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actor_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

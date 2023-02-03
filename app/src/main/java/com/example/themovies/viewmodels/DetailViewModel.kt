@@ -1,12 +1,10 @@
 package com.example.themovies.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.themovies.model.cast.CastItem
 import com.example.themovies.repository.MoviesRepository
-import dagger.assisted.Assisted
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -56,7 +54,6 @@ class DetailViewModel @Inject constructor(
     }
 
 
-
     var job: Job? = null
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.printStackTrace()
@@ -80,7 +77,7 @@ class DetailViewModel @Inject constructor(
     }
 }
 
-data class DetailUiState (
+data class DetailUiState(
     val isLoading: Boolean = false,
     val errorMsg: String? = null
 )

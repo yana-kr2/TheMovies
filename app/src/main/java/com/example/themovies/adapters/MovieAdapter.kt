@@ -28,13 +28,15 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentMovies = movies[position]
-        val bundle = bundleOf("title" to currentMovies.name,
-                                    "poster" to currentMovies.image?.original,
-                                    "summary" to currentMovies.summary,
-                                    "premiered" to currentMovies.premiered,
-                                    "ended" to currentMovies.ended,
-                                    "id" to currentMovies.id,
-                                    "genres" to currentMovies.genres)
+        val bundle = bundleOf(
+            "title" to currentMovies.name,
+            "poster" to currentMovies.image?.original,
+            "summary" to currentMovies.summary,
+            "premiered" to currentMovies.premiered,
+            "ended" to currentMovies.ended,
+            "id" to currentMovies.id,
+            "genres" to currentMovies.genres
+        )
 
         holder.binding.apply {
             movieTitle.text = currentMovies.name
@@ -43,7 +45,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 crossfade(1000)
             }
             containerView.setOnClickListener {
-                Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_detail_fragment,bundle)
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_mainFragment_to_detail_fragment, bundle)
             }
         }
     }

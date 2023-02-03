@@ -9,7 +9,7 @@ import coil.load
 import com.example.themovies.databinding.ItemActorBinding
 import com.example.themovies.model.cast.CastItem
 
-class CastAdapter() : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
+class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CastViewHolder {
         return CastViewHolder(
@@ -35,7 +35,6 @@ class CastAdapter() : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
     inner class CastViewHolder(val binding: ItemActorBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 
 
     private val diffCallback = object : DiffUtil.ItemCallback<CastItem>() {

@@ -10,9 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 
@@ -20,7 +17,7 @@ import javax.inject.Inject
 class MainViewModel
 @Inject constructor(
     private val repository: MoviesRepository
-    ): ViewModel() {
+) : ViewModel() {
 
     companion object {
         const val TAG = "MainViewModel"

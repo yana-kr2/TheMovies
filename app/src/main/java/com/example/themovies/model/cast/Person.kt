@@ -1,8 +1,6 @@
 package com.example.themovies.model.cast
 
 
-import com.google.gson.annotations.SerializedName
-
 data class Person(
     val birthday: String,
     val deathday: Any,
