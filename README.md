@@ -5,7 +5,7 @@ The app used the tvmaze.com  API to donwload data. Some techologies such as  Ret
 # Issues
 I clearly know, that I have trouble with naming of folders, classes and variables.
  
-At this moment I hit the problem with checking of internet connection before data request (I guess, that I need rewrite logic of data request, wich will catch the Internet connection srate)
+At this moment I hit the problem with checking of internet connection before data request (I guess, that I need rewrite logic of data request, which will catch the Internet connection srate)
  
 Also, I can't implement pagination and DataBinding right now. It's technology is absolutely unknown for me, and I feel, that I need much more time to research it in depth. 
 I could try to implement some code from tutorial or any else source, but I still can't wrap this knowledges my head around.
