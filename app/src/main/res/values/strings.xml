@@ -16,6 +16,7 @@
     <string name="error_common">Something went wrong!</string>
     <string name="error_common_try_later">Something went wrong! Please try later!</string>
     <string name="error_internet_connection">Please check your internet connection and try again.</string>
-    <string name="premiered">Premiered:</string>
-    <string name="ended">Ended:</string>
+    <string name="premiered">Premiered :</string>
+    <string name="ended">Ended :</string>
+    <string name="official_site">Official site :</string>
 </resources>

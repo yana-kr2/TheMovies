@@ -6,11 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import coil.load
+import com.example.themovies.R
 import com.example.themovies.adapters.CastAdapter
 import com.example.themovies.databinding.FragmentDetailBinding
 import com.example.themovies.utils.extensions.collectIn
@@ -29,11 +32,13 @@ class DetailFragment : BaseFragment() {
     private val viewModel: DetailViewModel by viewModels()
     private lateinit var castAdapter: CastAdapter
     private var id: Int? = null
+    private var url: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         castAdapter = CastAdapter()
         id = arguments?.getInt("id") ?: -1
+        url = arguments?.getString("officialSite")
         // I know that is wrong
         viewModel.movieId = id as Int
 
@@ -49,6 +54,7 @@ class DetailFragment : BaseFragment() {
         mBinding = binding
         setupCastRv()
         subscribeUi()
+        setupClickListener()
 
         return binding.root
     }
@@ -75,11 +81,13 @@ class DetailFragment : BaseFragment() {
     override fun setupView() {
         val overview = arguments?.getString("summary")
         mBinding?.apply {
-            premieredDate.text = arguments?.getString("premiered")?.replace("-",".")
-            endedDate.text = arguments?.getString("ended")?.replace("-",".")
+            premieredDate.text = arguments?.getString("premiered")
+            endedDate.text =
+                arguments?.getString("ended")?.replace("-", ".")
             moviePoster.load((arguments?.getString("poster")))
             movieTitle.text = arguments?.getString("title")
             description.text = Html.fromHtml(overview)
+            officialSite.text = url
         }
     }
 
@@ -93,6 +101,16 @@ class DetailFragment : BaseFragment() {
             castAdapter.items = it
         }
         viewModel.getAllCast()
+    }
+
+    private fun setupClickListener() {
+        mBinding?.officialSite?.setOnClickListener {
+            val bundle = bundleOf(
+                "officialSite" to url
+            )
+            Navigation.findNavController(it)
+                .navigate(R.id.action_detail_fragment_to_webViewFragment, bundle)
+        }
     }
 }
 

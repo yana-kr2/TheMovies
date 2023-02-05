@@ -8,7 +8,8 @@ data class Movie(
     val summary: String,
     val premiered: String,
     val genres: List<String>,
-    val ended: String
+    val ended: String,
+    val officialSite: String
 )
 
 

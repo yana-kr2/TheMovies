@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="WebViewWrapper">
+        <attr format="boolean" name="supportBackStack" />
+    </declare-styleable>
+</resources>

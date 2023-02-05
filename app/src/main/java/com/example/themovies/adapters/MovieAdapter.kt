@@ -38,6 +38,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             "genres" to currentMovies.genres,
             "premiered" to currentMovies.premiered,
             "ended" to currentMovies.ended,
+            "officialSite" to currentMovies.officialSite
         )
 
         holder.binding.apply {
