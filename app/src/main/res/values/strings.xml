@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">The Movies</string>
-    <string name="movie_catalog">Movie Catalog</string>
+    <string name="movie_catalog">TVShow Catalog</string>
     <string name="movie_title">Movie title</string>
     <string name="director_label">Director: </string>
     <string name="director_name">Director name</string>
-    <string name="actors">Actors</string>
+    <string name="cast">Cast</string>
     <string name="actor_1">Actor 1</string>
     <string name="actor_2">Actor 2</string>
     <string name="actor_3">Actor 3</string>
@@ -16,4 +16,6 @@
     <string name="error_common">Something went wrong!</string>
     <string name="error_common_try_later">Something went wrong! Please try later!</string>
     <string name="error_internet_connection">Please check your internet connection and try again.</string>
+    <string name="premiered">Premiered:</string>
+    <string name="ended">Ended:</string>
 </resources>

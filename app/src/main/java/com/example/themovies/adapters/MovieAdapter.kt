@@ -30,17 +30,19 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         val currentMovies = movies[position]
         val bundle = bundleOf(
             "title" to currentMovies.name,
-            "poster" to currentMovies.image?.original,
+            "poster" to currentMovies.image.original,
             "summary" to currentMovies.summary,
             "premiered" to currentMovies.premiered,
             "ended" to currentMovies.ended,
             "id" to currentMovies.id,
-            "genres" to currentMovies.genres
+            "genres" to currentMovies.genres,
+            "premiered" to currentMovies.premiered,
+            "ended" to currentMovies.ended,
         )
 
         holder.binding.apply {
             movieTitle.text = currentMovies.name
-            moviePoster.load(currentMovies.image?.original) {
+            moviePoster.load(currentMovies.image.original) {
                 crossfade(true)
                 crossfade(1000)
             }

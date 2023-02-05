@@ -73,12 +73,14 @@ class DetailFragment : BaseFragment() {
 
 
     override fun setupView() {
-        mBinding?.movieTitle?.text = arguments?.getString("title")
-        mBinding?.moviePoster?.load((arguments?.getString("poster")))
-        val description = arguments?.getString("summary")
-        mBinding?.description?.text = Html.fromHtml(description)
-
-
+        val overview = arguments?.getString("summary")
+        mBinding?.apply {
+            premieredDate.text = arguments?.getString("premiered")?.replace("-",".")
+            endedDate.text = arguments?.getString("ended")?.replace("-",".")
+            moviePoster.load((arguments?.getString("poster")))
+            movieTitle.text = arguments?.getString("title")
+            description.text = Html.fromHtml(overview)
+        }
     }
 
     private fun setupCastRv() {

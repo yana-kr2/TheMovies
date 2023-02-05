@@ -64,17 +64,74 @@
                 tools:layout_editor_absoluteY="484dp" />
 
             <TextView
+                android:id="@+id/premiered_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/premiered"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_title"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/movie_title" />
+
+            <TextView
+                android:id="@+id/premiered_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingHorizontal="@dimen/item_padding"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_title"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/premiered_label"
+                app:layout_constraintTop_toBottomOf="@id/movie_title" />
+
+            <TextView
+                android:id="@+id/ended_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/ended"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_title"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/premiered_label" />
+
+            <TextView
+                android:id="@+id/ended_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingHorizontal="@dimen/item_padding"
+                android:textColor="@color/textColorLightGray"
+                android:textSize="@dimen/text_title"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/ended_label"
+                app:layout_constraintTop_toBottomOf="@id/premiered_date" />
+
+            <TextView
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
+                android:paddingVertical="@dimen/item_padding"
                 android:textColor="@color/textColorLightGray"
                 android:textSize="@dimen/text_body"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="@id/end_guideline"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/barrier" />
+                app:layout_constraintTop_toBottomOf="@id/ended_date" />
 
             <TextView
                 android:id="@+id/actor_label"
@@ -82,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_sub_half"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="@string/actors"
+                android:text="@string/cast"
                 android:textColor="@color/textColorLightGray"
                 android:textSize="@dimen/text_title"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
