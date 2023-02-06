@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.themovies.databinding.ActivityMainBinding
 import com.example.themovies.utils.ConnectivityObserver
+import com.example.themovies.utils.NetworkConnectivityObserver
 import com.example.themovies.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn

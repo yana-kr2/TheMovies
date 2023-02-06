@@ -52,11 +52,15 @@ class DetailFragment : BaseFragment() {
         val binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
         context ?: return binding.root
         mBinding = binding
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupCastRv()
         subscribeUi()
         setupClickListener()
-
-        return binding.root
     }
 
     override fun onDestroyView() {
@@ -81,7 +85,7 @@ class DetailFragment : BaseFragment() {
     override fun setupView() {
         val overview = arguments?.getString("summary")
         mBinding?.apply {
-            premieredDate.text = arguments?.getString("premiered")
+            premieredDate.text = arguments?.getString("premiered")?.replace("-", ".")
             endedDate.text =
                 arguments?.getString("ended")?.replace("-", ".")
             moviePoster.load((arguments?.getString("poster")))

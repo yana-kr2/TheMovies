@@ -1,9 +1,8 @@
-package com.example.themovies
+package com.example.themovies.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
-import com.example.themovies.utils.ConnectivityObserver
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow

@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel
 @Inject constructor(
-    private val repository: MoviesRepository
+    private val repository: MoviesRepository,
 ) : ViewModel() {
 
     companion object {

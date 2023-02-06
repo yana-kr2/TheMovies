@@ -10,10 +10,10 @@ import com.google.android.material.snackbar.Snackbar
 
 fun FragmentActivity.showSnackBar(message: String) {
     val rootView = window.decorView.findViewById<View>(android.R.id.content)
-    val snackbar = Snackbar.make(rootView, message, Snackbar.LENGTH_LONG)
+    val snackBar = Snackbar.make(rootView, message, Snackbar.LENGTH_LONG)
 
-    snackbar.setAction(getString(R.string.cancel)) {
-        snackbar.dismiss()
+    snackBar.setAction(getString(R.string.cancel)) {
+        snackBar.dismiss()
     }
         .setBackgroundTint(App.getResColor(R.color.white))
         .setActionTextColor(App.getResColor(R.color.pale_black))
