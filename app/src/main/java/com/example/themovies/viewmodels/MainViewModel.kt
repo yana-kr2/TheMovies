@@ -44,7 +44,7 @@ class MainViewModel
                     movieList.postValue(response.body())
                 } else {
                     _uiState.update {
-                        it.copy(errorMsg = response.message())
+                        it.copy(errorMsg = response.errorBody().toString())
                     }
                 }
             }
@@ -69,10 +69,12 @@ class MainViewModel
         super.onCleared()
         job?.cancel()
     }
+
+    data class MainUiState(
+        val isLoading: Boolean = false,
+        val errorMsg: String? = null
+    )
+
 }
 
-data class MainUiState(
-    val isLoading: Boolean = false,
-    val errorMsg: String? = null
-)
 
