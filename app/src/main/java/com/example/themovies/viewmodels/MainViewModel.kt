@@ -1,8 +1,9 @@
 package com.example.themovies.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.themovies.model.movie.Movie
+import com.example.themovies.model.tmdb.Movie
 import com.example.themovies.repository.MoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -38,13 +39,14 @@ class MainViewModel
     fun getAllMovies() {
         job = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler).launch {
             showLoading(true)
-            val response = repository.getMovies()
+            val result = repository.getMovieTmdb()
             withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    movieList.postValue(response.body())
+                if (result.isSuccessful) {
+                    Log.d(TAG,"Result ${result.body()}")
+                    movieList.postValue(result.body()!!.results)
                 } else {
                     _uiState.update {
-                        it.copy(errorMsg = response.errorBody().toString())
+                        it.copy(errorMsg = result.errorBody().toString())
                     }
                 }
             }

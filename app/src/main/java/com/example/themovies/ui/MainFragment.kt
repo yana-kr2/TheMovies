@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themovies.adapters.MovieAdapter
 import com.example.themovies.databinding.FragmentMainBinding
+import com.example.themovies.model.tmdb.Movie
 import com.example.themovies.utils.extensions.collectIn
 import com.example.themovies.utils.extensions.showSnackBar
 import com.example.themovies.viewmodels.MainViewModel
