@@ -18,6 +18,9 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
+    fun baseUrl() = "https://api.tvmaze.com/"
+
+    @Provides
     fun getOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -27,9 +30,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(BASE_URL: String?): MovieApiInterface =
+    fun provideRetrofitInstance(baseUrl: String?): MovieApiInterface =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(getOkHttpClient())
             .build()
