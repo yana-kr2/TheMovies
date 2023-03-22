@@ -1,15 +1,11 @@
 package com.example.compose.network
 
 import com.example.compose.model.MovieResponse
-import com.example.compose.model.Movies.MovieItem
 import com.example.compose.utils.AppConstant.END_POINT
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface MovieApiInterface {
-
-    @GET(END_POINT)
-    suspend fun getAllMovies(): Response<List<MovieItem>>
 
     @GET("/3/movie/top_rated?api_key=ab491442ff959325618c99b748ce3058")
     suspend fun getMovieResponse(): Response<MovieResponse>

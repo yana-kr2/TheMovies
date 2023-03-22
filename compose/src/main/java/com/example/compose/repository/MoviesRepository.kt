@@ -7,7 +7,6 @@ class MoviesRepository @Inject constructor(
     private val apiService: MovieApiInterface
 ) {
 
-    suspend fun getMovies() = apiService.getAllMovies()
 
     suspend fun getMovieTmdb() = apiService.getMovieResponse()
 

@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compose.model.Movie
+import com.example.compose.navigation.Screens
 import com.example.compose.ui.theme.Pale_Black
 import com.example.compose.ui.theme.TheMoviesTheme
 import com.example.compose.utils.AppConstant
@@ -36,29 +37,22 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel) {
             .background(Pale_Black)
     ) {
         items(allMovies.take(50)) { item ->
-            com.example.compose.screens.MovieItem(item = item)
+            com.example.compose.screens.MovieItem(movie = item, navController = navController)
         }
     }
 }
 
 @Composable
-@Preview(showBackground = true)
-fun PreviewMain() {
-    TheMoviesTheme {
-
-    }
-
-}
-
-@Composable
-fun MovieItem(item: Movie) {
+fun MovieItem(movie: Movie, navController: NavController) {
     Card(
         elevation = 4.dp,
         shape = RoundedCornerShape(6.dp),
         modifier = Modifier
             .background(Pale_Black)
             .padding(8.dp)
-            .clickable {  },
+            .clickable {
+                navController.navigate(Screens.Detail.route + "/${movie.id}")
+            },
     ) {
         Row(
             modifier = Modifier
@@ -67,28 +61,28 @@ fun MovieItem(item: Movie) {
                 .padding(vertical = 4.dp)
         ) {
             Image(
-                painter = rememberImagePainter(AppConstant.IMAGE_BASE_URL + item.posterPath),
+                painter = rememberImagePainter(AppConstant.IMAGE_BASE_URL + movie.posterPath),
                 contentDescription = "",
                 modifier = Modifier.size(128.dp)
             )
 
             Column {
                 Text(
-                    text = item.title,
+                    text = movie.title,
                     color = Color.White,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Row {
                     Text(
-                        text = "Rating: ${item.voteAverage}",
+                        text = "Rating: ${movie.voteAverage}",
                         color = Color.White,
                         fontWeight = FontWeight.Bold
                     )
                 }
                 Row {
                     Text(
-                        text = "Release date: ${item.releaseDate}",
+                        text = "Release date: ${movie.releaseDate}",
                         color = Color.White,
                         fontWeight = FontWeight.Bold
                     )
@@ -100,6 +94,15 @@ fun MovieItem(item: Movie) {
             }
 
         }
+
+    }
+
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewMain() {
+    TheMoviesTheme {
 
     }
 
