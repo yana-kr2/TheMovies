@@ -99,7 +99,8 @@ fun MovieItem(movie: Movie, navController: NavController) {
                     Text(
                         text = "Rating: ${movie.voteAverage}",
                         color = Color.White,
-                        style = MaterialTheme.typography.h2
+                        style = MaterialTheme.typography.h2,
+                        modifier = Modifier.padding(vertical = 6.dp)
                     )
                 }
                 Row {
