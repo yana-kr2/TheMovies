@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(
                     Log.d(TAG, "Result ${result.body()}")
                     _movieList.postValue(result.body()!!.results)
                 } else {
-                    Log.d(TAG, "Error: ")
+                    Log.d(TAG, "Error: ${result.errorBody()} ")
                 }
             }
         }

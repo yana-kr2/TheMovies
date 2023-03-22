@@ -29,7 +29,6 @@ import com.example.compose.viewmodels.MainViewModel
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: MainViewModel) {
-    viewModel.getAllMovies()
     val allMovies = viewModel.movieList.observeAsState(listOf()).value
 
     Column(
@@ -58,7 +57,9 @@ fun MainTitle() {
         text = "TOP RATED",
         fontSize = 48.sp,
         color = Color.White,
-        fontWeight = FontWeight.Bold
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .padding(vertical = 16.dp, horizontal = 16.dp)
     )
 }
 

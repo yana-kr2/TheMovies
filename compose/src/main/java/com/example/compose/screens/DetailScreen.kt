@@ -14,11 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compose.ui.theme.Pale_Black
+import com.example.compose.ui.theme.TheMoviesTheme
 import com.example.compose.utils.AppConstant
 import com.example.compose.viewmodels.MainViewModel
 
@@ -55,19 +57,26 @@ fun DetailScreen(navController: NavController, viewModel: MainViewModel, movieId
                     fontWeight = FontWeight.Bold,
                     fontSize = 36.sp,
                     modifier = Modifier
-                        .padding(horizontal = 8.dp, vertical = 8.dp),
-
+                        .padding(horizontal = 8.dp, vertical = 8.dp)
                 )
+
 
                 Text(
                     text = currentMovie?.overview ?: "Unknown overview",
                     color = Color.White,
                     fontSize = 24.sp,
                     modifier = Modifier
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = 8.dp)
                 )
             }
         }
 
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun PreviewDetail() {
+    TheMoviesTheme {
     }
 }
