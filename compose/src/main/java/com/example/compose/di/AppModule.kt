@@ -18,7 +18,8 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
-    fun baseUrl() = "https://api.tvmaze.com/"
+//    fun baseUrl() = "https://api.tvmaze.com/"
+    fun baseUrl() = "https://api.themoviedb.org"
 
     @Provides
     fun getOkHttpClient(): OkHttpClient = OkHttpClient.Builder()

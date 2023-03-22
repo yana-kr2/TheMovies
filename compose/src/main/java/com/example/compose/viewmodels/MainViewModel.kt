@@ -26,9 +26,9 @@ class MainViewModel @Inject constructor(
     }
 
 
-    private val _movieList = MutableLiveData<List<MovieItem>>()
-    val movieList: LiveData<List<MovieItem>>
-    get() = _movieList
+    private val _movieList = MutableLiveData<List<Movie>>()
+    val movieList: LiveData<List<Movie>>
+        get() = _movieList
 
     var job: Job? = null
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
@@ -38,18 +38,18 @@ class MainViewModel @Inject constructor(
 
     fun getAllMovies() {
         job = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler).launch {
-            val result = repository.getMovies()
+            val result = repository.getMovieTmdb()
             withContext(Dispatchers.Main) {
                 if (result.isSuccessful) {
-                    Log.d(TAG,"Result ${result.body()}")
-                    _movieList.postValue(result.body())
+                    Log.d(TAG, "Result ${result.body()}")
+                    _movieList.postValue(result.body()!!.results)
                 } else {
-
-                    }
+                    Log.d(TAG, "Error: ")
                 }
             }
         }
     }
+}
 
 
 

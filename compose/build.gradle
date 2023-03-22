@@ -96,7 +96,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10")
 
     //Coil
-    implementation("io.coil-kt:coil:1.4.0")
+    implementation("io.coil-kt:coil-compose:1.4.0")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.14.2")
