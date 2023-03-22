@@ -14,6 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,18 +29,37 @@ import com.example.compose.viewmodels.MainViewModel
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: MainViewModel) {
-
     viewModel.getAllMovies()
     val allMovies = viewModel.movieList.observeAsState(listOf()).value
 
-    LazyColumn(
+    Column(
         modifier = Modifier
             .background(Pale_Black)
     ) {
-        items(allMovies.take(50)) { item ->
-            com.example.compose.screens.MovieItem(movie = item, navController = navController)
+        MainTitle()
+        LazyColumn(
+            modifier = Modifier
+                .background(Pale_Black)
+        ) {
+
+            items(allMovies.take(50)) { item ->
+                MovieItem(movie = item, navController = navController)
+
+            }
         }
     }
+}
+
+
+@Composable
+fun MainTitle() {
+    Text(
+        textAlign = TextAlign.Center,
+        text = "TOP RATED",
+        fontSize = 48.sp,
+        color = Color.White,
+        fontWeight = FontWeight.Bold
+    )
 }
 
 @Composable

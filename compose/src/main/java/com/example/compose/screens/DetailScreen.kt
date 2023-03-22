@@ -48,11 +48,12 @@ fun DetailScreen(navController: NavController, viewModel: MainViewModel, movieId
 
                 )
 
-                Text(textAlign = TextAlign.Center,
+                Text(
+                    textAlign = TextAlign.Center,
                     text = currentMovie?.title ?: "Unknown title",
                     color = Color.White,
-                    fontSize = 36.sp,
                     fontWeight = FontWeight.Bold,
+                    fontSize = 36.sp,
                     modifier = Modifier
                         .padding(horizontal = 8.dp, vertical = 8.dp),
 

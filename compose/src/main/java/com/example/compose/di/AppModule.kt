@@ -1,6 +1,7 @@
 package com.example.compose.di
 
 import com.example.compose.network.MovieApiInterface
+import com.example.compose.utils.AppConstant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,8 +19,7 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
-//    fun baseUrl() = "https://api.tvmaze.com/"
-    fun baseUrl() = "https://api.themoviedb.org"
+    fun baseUrl() = AppConstant.BASE_URL
 
     @Provides
     fun getOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
