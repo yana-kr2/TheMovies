@@ -19,6 +19,7 @@ The app used the themoviedb.org  API to donwload data.
 # Module 2 done with JETPACK COMPOSE
 Updating the main application on COMPOSE. Some UI changes have been applied.
 Notice: I've used COMPOSE for the first time. 
+At the moment I have difficulties with the implementation of pagination on Compose.
 - Kotlin
 - Compose
 - Coroutines
