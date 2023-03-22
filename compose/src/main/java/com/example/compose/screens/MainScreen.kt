@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -54,8 +55,8 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel) {
 fun MainTitle() {
     Text(
         textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.body2,
         text = "TOP RATED",
-        fontSize = 48.sp,
         color = Color.White,
         fontWeight = FontWeight.Bold,
         modifier = Modifier
@@ -91,21 +92,21 @@ fun MovieItem(movie: Movie, navController: NavController) {
                 Text(
                     text = movie.title,
                     color = Color.White,
-                    fontSize = 22.sp,
+                    style = MaterialTheme.typography.h1,
                     fontWeight = FontWeight.Bold
                 )
                 Row {
                     Text(
                         text = "Rating: ${movie.voteAverage}",
                         color = Color.White,
-                        fontWeight = FontWeight.Bold
+                        style = MaterialTheme.typography.h2
                     )
                 }
                 Row {
                     Text(
                         text = "Release date: ${movie.releaseDate}",
                         color = Color.White,
-                        fontWeight = FontWeight.Bold
+                        style = MaterialTheme.typography.h2
                     )
                 }
             }

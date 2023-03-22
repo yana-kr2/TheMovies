@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -54,8 +55,7 @@ fun DetailScreen(navController: NavController, viewModel: MainViewModel, movieId
                     textAlign = TextAlign.Center,
                     text = currentMovie?.title ?: "Unknown title",
                     color = Color.White,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 36.sp,
+                    style = MaterialTheme.typography.h3,
                     modifier = Modifier
                         .padding(horizontal = 8.dp, vertical = 8.dp)
                 )
@@ -64,7 +64,7 @@ fun DetailScreen(navController: NavController, viewModel: MainViewModel, movieId
                 Text(
                     text = currentMovie?.overview ?: "Unknown overview",
                     color = Color.White,
-                    fontSize = 24.sp,
+                    style = MaterialTheme.typography.h4,
                     modifier = Modifier
                         .padding(horizontal = 8.dp)
                 )
