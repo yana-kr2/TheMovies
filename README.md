@@ -1,6 +1,6 @@
 # TheMovies in two modules
 The Movies is the sample app to demonstrate how I tried to implement the Android MVVM Architecture with Retrofit, Coroutines and DI with Hilt also.
-The app used the themoviedb.org  API to donwload data. 
+The app used the themoviedb.org  API to download data. 
 
 # Module 1
 # Technology stack
@@ -18,8 +18,10 @@ The app used the themoviedb.org  API to donwload data.
 
 # Module 2 done with JETPACK COMPOSE
 Updating the main application on COMPOSE. Some UI changes have been applied.
-Notice: I've used COMPOSE for the first time. 
+Notice: I'd used COMPOSE for the first time. 
+# Issues
 At the moment I have difficulties with the implementation of pagination on Compose.
+# Technology stack
 - Kotlin
 - Compose
 - Coroutines
