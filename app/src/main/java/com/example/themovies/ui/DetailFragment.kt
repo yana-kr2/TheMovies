@@ -16,6 +16,7 @@ import coil.load
 import com.example.themovies.R
 import com.example.themovies.adapters.CastAdapter
 import com.example.themovies.databinding.FragmentDetailBinding
+import com.example.themovies.utils.AppConstants
 import com.example.themovies.utils.extensions.collectIn
 import com.example.themovies.utils.extensions.showSnackBar
 import com.example.themovies.viewmodels.DetailViewModel
@@ -60,7 +61,7 @@ class DetailFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupCastRv()
         subscribeUi()
-        setupClickListener()
+//        setupClickListener()
     }
 
     override fun onDestroyView() {
@@ -86,12 +87,9 @@ class DetailFragment : BaseFragment() {
         val overview = arguments?.getString("summary")
         mBinding?.apply {
             premieredDate.text = arguments?.getString("premiered")?.replace("-", ".")
-            endedDate.text =
-                arguments?.getString("ended")?.replace("-", ".")
-            moviePoster.load((arguments?.getString("poster")))
+            moviePoster.load(AppConstants.IMAGE_BASE_URL + (arguments?.getString("poster")))
             movieTitle.text = arguments?.getString("title")
-            description.text = Html.fromHtml(overview)
-            officialSite.text = url
+            description.text = overview
         }
     }
 
@@ -107,15 +105,15 @@ class DetailFragment : BaseFragment() {
         viewModel.getAllCast()
     }
 
-    private fun setupClickListener() {
-        mBinding?.officialSite?.setOnClickListener {
-            val bundle = bundleOf(
-                "officialSite" to url
-            )
-            Navigation.findNavController(it)
-                .navigate(R.id.action_detail_fragment_to_webViewFragment, bundle)
-        }
-    }
+//    private fun setupClickListener() {
+//        mBinding?.officialSite?.setOnClickListener {
+//            val bundle = bundleOf(
+//                "officialSite" to url
+//            )
+//            Navigation.findNavController(it)
+//                .navigate(R.id.action_detail_fragment_to_webViewFragment, bundle)
+//        }
+//    }
 }
 
 

@@ -63,33 +63,33 @@
                 app:constraint_referenced_ids="movie_poster,movie_title"
                 tools:layout_editor_absoluteY="484dp" />
 
-            <TextView
-                android:id="@+id/official_site_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="@string/official_site"
-                android:textColor="@color/textColorLightGray"
-                android:textSize="@dimen/text_title"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/movie_title" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/official_site_label"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:fontFamily="@font/montserrat_bold"-->
+            <!--                android:text="@string/official_site"-->
+            <!--                android:textColor="@color/textColorLightGray"-->
+            <!--                android:textSize="@dimen/text_title"-->
+            <!--                app:layout_constrainedWidth="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+            <!--                app:layout_constraintHorizontal_bias="0"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/movie_title" />-->
 
-            <TextView
-                android:id="@+id/official_site"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/textColorLightGray"
-                android:textSize="@dimen/text_body"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/official_site_label" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/official_site"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:clickable="true"-->
+            <!--                android:fontFamily="@font/montserrat_regular"-->
+            <!--                android:textColor="@color/textColorLightGray"-->
+            <!--                android:textSize="@dimen/text_body"-->
+            <!--                app:layout_constrainedWidth="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+            <!--                app:layout_constraintHorizontal_bias="0"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/official_site_label" />-->
 
             <TextView
                 android:id="@+id/premiered_label"
@@ -103,7 +103,7 @@
                 app:layout_constraintEnd_toEndOf="@id/end_guideline"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/official_site" />
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
 
             <TextView
                 android:id="@+id/premiered_date"
@@ -119,33 +119,33 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/premiered_label" />
 
-            <TextView
-                android:id="@+id/ended_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="@string/ended"
-                android:textColor="@color/textColorLightGray"
-                android:textSize="@dimen/text_title"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/premiered_label" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/ended_label"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:fontFamily="@font/montserrat_bold"-->
+            <!--                android:text="@string/ended"-->
+            <!--                android:textColor="@color/textColorLightGray"-->
+            <!--                android:textSize="@dimen/text_title"-->
+            <!--                app:layout_constrainedWidth="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+            <!--                app:layout_constraintHorizontal_bias="0"-->
+            <!--                app:layout_constraintStart_toStartOf="@id/start_guideline"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/premiered_label" />-->
 
-            <TextView
-                android:id="@+id/ended_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
-                android:paddingHorizontal="@dimen/item_padding"
-                android:textColor="@color/textColorLightGray"
-                android:textSize="@dimen/text_body"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBaseline_toBaselineOf="@+id/ended_label"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toEndOf="@id/ended_label" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/ended_date"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:fontFamily="@font/montserrat_regular"-->
+            <!--                android:paddingHorizontal="@dimen/item_padding"-->
+            <!--                android:textColor="@color/textColorLightGray"-->
+            <!--                android:textSize="@dimen/text_body"-->
+            <!--                app:layout_constrainedWidth="true"-->
+            <!--                app:layout_constraintBaseline_toBaselineOf="@+id/ended_label"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/end_guideline"-->
+            <!--                app:layout_constraintHorizontal_bias="0"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/ended_label" />-->
 
             <TextView
                 android:id="@+id/description"
@@ -159,7 +159,7 @@
                 app:layout_constraintEnd_toEndOf="@id/end_guideline"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/ended_date" />
+                app:layout_constraintTop_toBottomOf="@id/premiered_label" />
 
             <TextView
                 android:id="@+id/actor_label"
@@ -170,6 +170,7 @@
                 android:text="@string/cast"
                 android:textColor="@color/textColorLightGray"
                 android:textSize="@dimen/text_title"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
                 app:layout_constraintTop_toBottomOf="@id/description" />
 
@@ -177,6 +178,7 @@
                 android:id="@+id/rv_cast_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
